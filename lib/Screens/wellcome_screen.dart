@@ -11,6 +11,7 @@ class WellcomeScreen extends StatefulWidget {
 }
 
 class _WellcomeScreenState extends State<WellcomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     final dspWidth = MediaQuery.of(context).size.width;
@@ -62,7 +63,6 @@ class _WellcomeScreenState extends State<WellcomeScreen> {
                           ),
                           Spacer(),
                           BigButton(buttonText: "Let’s Continue",giveWidget: AuthenticationScreen(),),
-                          SizedBox(height: 88,)
                         ],
                       ),
                     ),
