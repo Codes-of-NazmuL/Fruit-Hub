@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub_mobile_app/Screens/item_screen.dart';
 import 'package:fruit_hub_mobile_app/Styles/fontstyles.dart';
 import 'package:fruit_hub_mobile_app/Styles/item_card.dart';
+import 'package:fruit_hub_mobile_app/productlist/product_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -149,21 +151,28 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 24),
               SizedBox(
-                height: 190,
+                height: 200,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
                     ItemCard(
-                      height:183 ,
+                      height: 180,
                       width: 152,
-                      enterImage: "asstes/image/quinoa.png",
-                      itemName: "Honey",
-                      itemPrice: "200",
+                      enterImage: "asstes/image/x (2).png",
+                      itemName: "Honey lime combo",
+                      itemPrice: "2,000",
+                    ),
+                    ItemCard(
+                      height: 180,
+                      width: 152,
+                      enterImage: "asstes/image/x (1).png",
+                      itemName: "Berry mango combo",
+                      itemPrice: "8,000",
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 40,),
+              SizedBox(height: 30),
               TabBar(
                 tabs: [
                   Text("Hottest"),
@@ -193,13 +202,27 @@ class HomeScreen extends StatelessWidget {
               ),
               Spacer(),
               SizedBox(
-                height:180  ,
-                child: ListView.builder(itemBuilder: (context, index)
-                {
-                  return ItemCard(enterImage: "asstes/image/quinoa.png", itemName: "Quinna", itemPrice: "200", height: 160, width: 150);
-                },
-                itemCount: 10,scrollDirection: Axis.horizontal,),
-              )
+                height: 180,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      child: ItemCard(
+                        enterImage: producList[index % colorList.length]["image"],
+                        itemName: producList[index % colorList.length]["name"],
+                        itemPrice: producList[index % colorList.length]["price"],
+                        height: 160,
+                        width: 150,
+                        cardColor: colorList[index % 3],
+                      ),
+                      onTap: () {
+                         Navigator.push(context, MaterialPageRoute(builder: (context) => ItemScreen(),));
+                      },
+                    );
+                  },
+                  itemCount: 10,
+                  scrollDirection: Axis.horizontal,
+                ),
+              ),
             ],
           ),
         ),

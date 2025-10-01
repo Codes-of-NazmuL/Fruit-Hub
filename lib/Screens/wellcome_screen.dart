@@ -63,6 +63,7 @@ class _WellcomeScreenState extends State<WellcomeScreen> {
                           ),
                           Spacer(),
                           BigButton(buttonText: "Let’s Continue",giveWidget: AuthenticationScreen(),),
+                          SizedBox(height: 88,)
                         ],
                       ),
                     ),

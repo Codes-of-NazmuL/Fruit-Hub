@@ -8,7 +8,8 @@ class ItemCard extends StatefulWidget {
   final String itemPrice;
   final double height;
   final double width;
-  const ItemCard({super.key, required this.enterImage,required this.itemName,required this.itemPrice,required this.height,required this.width});
+  final Color? cardColor;
+  const ItemCard({super.key, required this.enterImage,required this.itemName,required this.itemPrice,required this.height,required this.width,this.cardColor});
 
   @override
   State<ItemCard> createState() => _ItemCardState();
@@ -22,7 +23,7 @@ class _ItemCardState extends State<ItemCard> {
       padding: const EdgeInsets.all(10),
       child: Card(
 
-        color: Colors.white,
+        color: widget.cardColor==null?Colors.white:widget.cardColor!,
         shape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide.none,
