@@ -29,7 +29,7 @@ class _ItemScreenState extends State<ItemScreen> {
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(16),
-                  topLeft: Radius.circular(16),
+                  topLeft: Radius.circular(20),
                 ),
               ),
             ),
